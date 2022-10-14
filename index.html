@@ -6,5 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mensagem Oculta</title>
   </head>
-  <body></body>
+  <body>
+    <section>
+      <form>
+        <label for="msg"
+          >Digite aqui sua mensagem a ser codificada ou decodificada:</label
+        >
+        <input type="text" name="msg" id="msg" />
+        <button class="cifraCesar" active>Cifra de César</button>
+        <button class="base64">Base 64</button>
+
+        <div class="incremento" style="display: none">
+          <label for="incremento">Digite aqui o incremento desejado</label>
+          <input
+            type="number"
+            name="incremento"
+            id="incremento"
+            min="1"
+            max="25"
+          />
+        </div>
+
+        <input type="radio" name="action" value="codificar" id="codificar" />
+        <label for="codificar">Codificar</label>
+        <input
+          type="radio"
+          name="action"
+          value="decodificar"
+          id="decodificar"
+        />
+        <label for="decodificar">Decodificar</label>
+
+        <button>Codificar</button>
+      </form>
+
+      <section class="resultado" style="display: none"></section>
+    </section>
+  </body>
 </html>
