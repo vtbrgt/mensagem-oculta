@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mensagem Oculta</title>
+
+    <link rel="stylesheet" href="css/index.css" />
   </head>
   <body>
     <section>
@@ -13,10 +15,10 @@
           >Digite aqui sua mensagem a ser codificada ou decodificada:</label
         >
         <input type="text" name="msg" id="msg" />
-        <button class="cifraCesar" active>Cifra de César</button>
+        <button class="cifraCesar btn-ativo">Cifra de César</button>
         <button class="base64">Base 64</button>
 
-        <div class="incremento" style="display: none">
+        <div class="incremento">
           <label for="incremento">Digite aqui o incremento desejado</label>
           <input
             type="number"
@@ -27,20 +29,23 @@
           />
         </div>
 
-        <input type="radio" name="action" value="codificar" id="codificar" />
-        <label for="codificar">Codificar</label>
         <input
+          checked
           type="radio"
-          name="action"
-          value="decodificar"
-          id="decodificar"
+          name="acao"
+          value="Codificar"
+          id="codificar"
         />
+        <label for="codificar">Codificar</label>
+        <input type="radio" name="acao" value="Decodificar" id="decodificar" />
         <label for="decodificar">Decodificar</label>
 
-        <button>Codificar</button>
+        <button class="btn">Codificar</button>
       </form>
 
       <section class="resultado" style="display: none"></section>
+
+      <script src="js/main.js"></script>
     </section>
   </body>
 </html>
