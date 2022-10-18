@@ -18,7 +18,7 @@
         <button class="cifraCesar btn-ativo">Cifra de César</button>
         <button class="base64">Base 64</button>
 
-        <div class="incremento">
+        <div class="incremento-box">
           <label for="incremento">Digite aqui o incremento desejado</label>
           <input
             type="number"
@@ -26,6 +26,7 @@
             id="incremento"
             min="1"
             max="25"
+            required
           />
         </div>
 
@@ -43,7 +44,9 @@
         <button class="btn">Codificar</button>
       </form>
 
-      <section class="resultado" style="display: none"></section>
+      <section class="resultado-box" style="display: none">
+        <p class="resultado"></p>
+      </section>
 
       <script src="js/main.js"></script>
     </section>
