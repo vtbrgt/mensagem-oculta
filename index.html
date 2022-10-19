@@ -6,17 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mensagem Oculta</title>
 
+    <link rel="icon" type="image/x-icon" href="img/decode.png" />
     <link rel="stylesheet" href="css/index.css" />
   </head>
   <body>
-    <section>
+    <section class="main-box">
+      <img class="logo" src="img/decode.png" alt="Decode icon">
       <form>
         <label for="msg"
           >Digite aqui sua mensagem a ser codificada ou decodificada:</label
         >
         <input type="text" name="msg" id="msg" required />
-        <button class="cifraCesar btn-ativo">Cifra de César</button>
-        <button class="base64">Base 64</button>
+
+        <div class="opcoes">
+          <button class="cifraCesar btn-ativo">Cifra de César</button>
+          <button class="base64">Base 64</button>
+        </div>
 
         <div class="incremento-box">
           <label for="incremento">Digite aqui o incremento desejado</label>
@@ -30,21 +35,23 @@
           />
         </div>
 
-        <input
-          checked
-          type="radio"
-          name="acao"
-          value="Codificar"
-          id="codificar"
-        />
-        <label for="codificar">Codificar</label>
-        <input type="radio" name="acao" value="Decodificar" id="decodificar" />
-        <label for="decodificar">Decodificar</label>
+        <div class="opcoes">
+          <input
+            checked
+            type="radio"
+            name="acao"
+            value="Codificar"
+            id="codificar"
+          />
+          <label for="codificar">Codificar</label>
+          <input type="radio" name="acao" value="Decodificar" id="decodificar" />
+          <label for="decodificar">Decodificar</label>
+        </div>
 
         <button class="btn">Codificar</button>
       </form>
 
-      <section class="resultado-box" style="display: none">
+      <section class="resultado-box">
         <p class="resultado"></p>
       </section>
 
