@@ -10,41 +10,35 @@ const submit = document.querySelector('.btn');
 let converterPara = '';
 
 /* FUNÇÕES REFERENTES A CIFRA DE CÉSAR */
-function convertToCesar(texto) {
+function convertCesar(texto) {
   texto = mensagem.value.toUpperCase();
   let textoConvertido = '';
-  for (let i = 0; i < texto.length; i++) {
-    let caracterCesar =
-      ((texto[i].charCodeAt() - 65 + Number(incremento.value)) % 26) + 65;
-    textoConvertido += String.fromCharCode(caracterCesar);
+  if (form.acao.value == 'Codificar') {
+    for (let i = 0; i < texto.length; i++) {
+      let caracterCesar =
+        ((texto[i].charCodeAt() - 65 + Number(incremento.value)) % 26) + 65;
+      textoConvertido += String.fromCharCode(caracterCesar);
+    }
+  } else {
+    for (let i = 0; i < texto.length; i++) {
+      let caracterCesar =
+        ((texto[i].charCodeAt() - 65 - Number(incremento.value)) % 26) + 65;
+      textoConvertido += String.fromCharCode(caracterCesar);
+    }
   }
   resultadoBox.style.display = 'block';
   resultado.innerText = `O resultado é: ${textoConvertido.toLowerCase()}`;
 }
 
-function convertFromCesar(texto) {
-  texto = mensagem.value.toUpperCase();
-  let textoConvertido = '';
-  for (let i = 0; i < texto.length; i++) {
-    let caracterCesar =
-      ((texto[i].charCodeAt() - 65 - Number(incremento.value)) % 26) + 65;
-    textoConvertido += String.fromCharCode(caracterCesar);
+/* FUNÇÃO REFERENTE A BASE64 */
+function convert64(texto) {
+  texto = mensagem.value;
+  let textoConvertido;
+  if (form.acao.value == 'Codificar') {
+    textoConvertido = btoa(texto);
+  } else {
+    textoConvertido = atob(texto);
   }
-  resultadoBox.style.display = 'block';
-  resultado.innerText = `O resultado é: ${textoConvertido.toLowerCase()}`;
-}
-
-/* FUNÇÕES REFERENTES A BASE64 */
-function convertTo64(texto) {
-  texto = mensagem.value;
-  const textoConvertido = btoa(texto);
-  resultadoBox.style.display = 'block';
-  resultado.innerText = `O resultado é: ${textoConvertido}`;
-}
-
-function convertFrom64(texto) {
-  texto = mensagem.value;
-  const textoConvertido = atob(texto);
   resultadoBox.style.display = 'block';
   resultado.innerText = `O resultado é: ${textoConvertido}`;
 }
@@ -53,36 +47,27 @@ function convertFrom64(texto) {
 function handleClick(event) {
   event.preventDefault();
   if (document.querySelector('.btn-ativo').innerText == 'Cifra de César') {
-    if (form.acao.value == 'Codificar') {
-      convertToCesar();
-    } else {
-      convertFromCesar();
-    }
+    convertCesar();
   } else {
-    if (form.acao.value == 'Codificar') {
-      convertTo64();
-    } else {
-      convertFrom64();
-    }
+    convert64();
   }
 }
 
 /* ALGORITMOS A SEREM EXECUTADOS DEPENDENDO DA CRIPTOGRAFIA ESCOLHIDO PELO USUÁRIO */
-cesar.addEventListener('click', (event) => {
+function changeCript(event) {
   event.preventDefault();
-  incrementoBox.style.display = 'flex';
-  cesar.classList.add('btn-ativo');
-  base64.classList.remove('btn-ativo');
-  converterPara = 'cesar';
-});
-
-base64.addEventListener('click', (event) => {
-  event.preventDefault();
-  incrementoBox.style.display = 'none';
-  base64.classList.add('btn-ativo');
-  cesar.classList.remove('btn-ativo');
-  converterPara = 'base64';
-});
+  if (event.target == cesar) {
+    incrementoBox.style.display = 'flex';
+    cesar.classList.add('btn-ativo');
+    base64.classList.remove('btn-ativo');
+    converterPara = 'cesar';
+  } else {
+    incrementoBox.style.display = 'none';
+    base64.classList.add('btn-ativo');
+    cesar.classList.remove('btn-ativo');
+    converterPara = 'base64';
+  }
+}
 
 /* ALTERNAR O TEXTO DO BOTÃO ENTRE CODIFICAR / DECOFICAR */
 form.acao.forEach((acao) =>
@@ -91,4 +76,6 @@ form.acao.forEach((acao) =>
   })
 );
 
+cesar.addEventListener('click', changeCript);
+base64.addEventListener('click', changeCript);
 submit.addEventListener('click', handleClick);
