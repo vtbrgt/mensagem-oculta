@@ -9,12 +9,7 @@ const resultado = document.querySelector('.resultado');
 const submit = document.querySelector('.btn');
 let converterPara = '';
 
-/* FUNÇÕES A SEREM CRIADAS: 
-convertFrom64(texto)
-handleClick(event) {
-    // refatorar uma função a ser reutilizada nos botões
-} */
-
+/* FUNÇÕES REFERENTES A CIFRA DE CÉSAR */
 function convertToCesar(texto) {
   texto = mensagem.value.toUpperCase();
   let textoConvertido = '';
@@ -39,6 +34,7 @@ function convertFromCesar(texto) {
   resultado.innerText = textoConvertido.toLowerCase();
 }
 
+/* FUNÇÕES REFERENTES A BASE64 */
 function convertTo64(texto) {
   texto = mensagem.value;
   const textoConvertido = btoa(texto);
@@ -53,6 +49,7 @@ function convertFrom64(texto) {
   resultado.innerText = textoConvertido;
 }
 
+/* FUNÇÃO PARA DESCOBRIR QUAL FUNÇÃO EXECUTAR AO CLICAR NO BOTÃO PARA CODIFICAR/DECODIFICAR */
 function handleClick(event) {
   event.preventDefault();
   if (document.querySelector('.btn-ativo').innerText == 'Cifra de César') {
