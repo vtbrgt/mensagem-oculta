@@ -10,7 +10,6 @@ const submit = document.querySelector('.btn');
 let converterPara = '';
 
 /* FUNÇÕES A SEREM CRIADAS: 
-convertTo64(texto)
 convertFrom64(texto)
 handleClick(event) {
     // refatorar uma função a ser reutilizada nos botões
@@ -40,6 +39,20 @@ function convertFromCesar(texto) {
   resultado.innerText = textoConvertido.toLowerCase();
 }
 
+function convertTo64(texto) {
+  texto = mensagem.value;
+  const textoConvertido = btoa(texto);
+  resultadoBox.style.display = 'block';
+  resultado.innerText = textoConvertido;
+}
+
+function convertFrom64(texto) {
+  texto = mensagem.value;
+  const textoConvertido = atob(texto);
+  resultadoBox.style.display = 'block';
+  resultado.innerText = textoConvertido;
+}
+
 function handleClick(event) {
   event.preventDefault();
   if (document.querySelector('.btn-ativo').innerText == 'Cifra de César') {
@@ -48,13 +61,19 @@ function handleClick(event) {
     } else {
       convertFromCesar();
     }
+  } else {
+    if (form.acao.value == 'Codificar') {
+      convertTo64();
+    } else {
+      convertFrom64();
+    }
   }
 }
 
 /* ALGORITMOS A SEREM EXECUTADOS DEPENDENDO DA CRIPTOGRAFIA ESCOLHIDO PELO USUÁRIO */
 cesar.addEventListener('click', (event) => {
   event.preventDefault();
-  incremento.style.display = 'block';
+  incrementoBox.style.display = 'block';
   cesar.classList.add('btn-ativo');
   base64.classList.remove('btn-ativo');
   converterPara = 'cesar';
@@ -62,7 +81,7 @@ cesar.addEventListener('click', (event) => {
 
 base64.addEventListener('click', (event) => {
   event.preventDefault();
-  incremento.style.display = 'none';
+  incrementoBox.style.display = 'none';
   base64.classList.add('btn-ativo');
   cesar.classList.remove('btn-ativo');
   converterPara = 'base64';
