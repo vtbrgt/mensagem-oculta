@@ -11,17 +11,17 @@
   </head>
   <body>
     <section class="main-box">
-      <img class="logo" src="img/decode.png" alt="Decode icon">
+      <img class="logo" src="img/decode.png" alt="Decode icon" />
       <form>
         <label for="msg"
           >Digite aqui sua mensagem a ser codificada ou decodificada:</label
         >
         <input type="text" name="msg" id="msg" required />
 
-        <div class="opcoes">
+        <section class="opcoes">
           <button class="cifraCesar btn-ativo">Cifra de César</button>
           <button class="base64">Base 64</button>
-        </div>
+        </section>
 
         <div class="incremento-box">
           <label for="incremento">Digite aqui o incremento desejado</label>
@@ -35,18 +35,27 @@
           />
         </div>
 
-        <div class="opcoes">
-          <input
-            checked
-            type="radio"
-            name="acao"
-            value="Codificar"
-            id="codificar"
-          />
-          <label for="codificar">Codificar</label>
-          <input type="radio" name="acao" value="Decodificar" id="decodificar" />
-          <label for="decodificar">Decodificar</label>
-        </div>
+        <section class="opcoes cod">
+          <div>
+            <input
+              checked
+              type="radio"
+              name="acao"
+              value="Codificar"
+              id="codificar"
+            />
+            <label for="codificar">Codificar</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              name="acao"
+              value="Decodificar"
+              id="decodificar"
+            />
+            <label for="decodificar">Decodificar</label>
+          </div>
+        </section>
 
         <button class="btn">Codificar</button>
       </form>

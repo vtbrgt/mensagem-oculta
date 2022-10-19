@@ -19,7 +19,7 @@ function convertToCesar(texto) {
     textoConvertido += String.fromCharCode(caracterCesar);
   }
   resultadoBox.style.display = 'block';
-  resultado.innerText = textoConvertido.toLowerCase();
+  resultado.innerText = `O resultado é: ${textoConvertido.toLowerCase()}`;
 }
 
 function convertFromCesar(texto) {
@@ -31,7 +31,7 @@ function convertFromCesar(texto) {
     textoConvertido += String.fromCharCode(caracterCesar);
   }
   resultadoBox.style.display = 'block';
-  resultado.innerText = textoConvertido.toLowerCase();
+  resultado.innerText = `O resultado é: ${textoConvertido.toLowerCase()}`;
 }
 
 /* FUNÇÕES REFERENTES A BASE64 */
@@ -39,14 +39,14 @@ function convertTo64(texto) {
   texto = mensagem.value;
   const textoConvertido = btoa(texto);
   resultadoBox.style.display = 'block';
-  resultado.innerText = textoConvertido;
+  resultado.innerText = `O resultado é: ${textoConvertido}`;
 }
 
 function convertFrom64(texto) {
   texto = mensagem.value;
   const textoConvertido = atob(texto);
   resultadoBox.style.display = 'block';
-  resultado.innerText = textoConvertido;
+  resultado.innerText = `O resultado é: ${textoConvertido}`;
 }
 
 /* FUNÇÃO PARA DESCOBRIR QUAL FUNÇÃO EXECUTAR AO CLICAR NO BOTÃO PARA CODIFICAR/DECODIFICAR */
@@ -70,7 +70,7 @@ function handleClick(event) {
 /* ALGORITMOS A SEREM EXECUTADOS DEPENDENDO DA CRIPTOGRAFIA ESCOLHIDO PELO USUÁRIO */
 cesar.addEventListener('click', (event) => {
   event.preventDefault();
-  incrementoBox.style.display = 'block';
+  incrementoBox.style.display = 'flex';
   cesar.classList.add('btn-ativo');
   base64.classList.remove('btn-ativo');
   converterPara = 'cesar';
