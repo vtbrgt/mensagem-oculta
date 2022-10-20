@@ -7,8 +7,7 @@ O objetivo deste projeto é explorar os conceitos de manipulação do DOM aprend
 ## Instruções
 
 1. Digite a mensagem a ser codificada/decodificada
-2. Selecione o tipo de codificação quer usar (Cifra de césar ou Base 64)
-    2.1 Caso selecione cifra de césar, insira o incremento
+2. Selecione o tipo de codificação quer usar (Cifra de césar ou Base 64) se caso selecionado cifra de césar, inserir o incremento
 3. Escolha se quer codificar ou decodificar sua mensagem
 4. Clique no botão para executar a conversão
 
